@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "290114251950",
+    "project_id": "databaseconnectionlec",
+    "storage_bucket": "databaseconnectionlec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290114251950:android:fcc362107cbc261e8d913f",
+        "android_client_info": {
+          "package_name": "com.example.logcat_and_debugger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD3OiUELncmgZnxZlwcqTaW3RUfXzg4BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -25,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/baseline_person_24"
-        app:helperText="*Required"
         app:helperTextTextColor="#6E260E"
         android:layout_margin="10dp">
 
@@ -34,6 +33,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/greybackground"
             android:inputType="text"
+            android:id="@+id/etName"
             android:hint="Name" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,7 +42,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/outline_alternate_email_24"
-        app:helperText="*Required"
         app:helperTextTextColor="#6E260E"
         android:layout_margin="10dp">
 
@@ -51,6 +50,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/greybackground"
             android:inputType="textEmailSubject"
+            android:id="@+id/etMail"
             android:hint="Email" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,8 +58,25 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/baseline_person_24"
+        app:helperTextTextColor="#6E260E"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/greybackground"
+            android:inputType="textEmailSubject"
+            android:id="@+id/etUserName"
+            android:hint="Username" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/baseline_password_24"
-        app:helperText="*Required"
+
         app:helperTextTextColor="#6E260E"
         android:layout_margin="10dp"
         app:endIconMode="password_toggle">
@@ -70,18 +87,17 @@
             android:layout_height="wrap_content"
             android:background="@drawable/greybackground"
             android:inputType="textPassword"
+            android:id="@+id/etPassword"
             android:hint="Password" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Sign Up"
-        android:backgroundTint="@null"
-        android:background="@drawable/buttoncolor"
         />
 
 </LinearLayout>
