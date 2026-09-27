@@ -109,7 +109,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Sign Up"
+        android:text="SIGN UP"
         />
+
+    <Button
+        android:id="@+id/btnsignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:text="SIGN IN" />
+
+    <TextView
+        android:id="@+id/tvsignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="11dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:text="Note: If You Are Registered User, Please Click To SIGN IN" />
+
+
 
 </LinearLayout>

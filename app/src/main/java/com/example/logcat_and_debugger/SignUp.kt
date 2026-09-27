@@ -1,5 +1,6 @@
 package com.example.logcat_and_debugger
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
@@ -23,28 +24,36 @@ class SignUp : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //Here we declare all the ui components
         val signButton = findViewById<Button>(R.id.btnsignup)
         val etName = findViewById<TextInputEditText>(R.id.etName)
         val etEmail = findViewById<TextInputEditText>(R.id.etMail)
         val etUsername = findViewById<TextInputEditText>(R.id.etUserName)
         val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
 
-        signButton.setOnClickListener {
+        signButton.setOnClickListener { // if user click on signup button then this code will run
             val name = etName.text.toString()
             val mail = etEmail.text.toString()
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
             val user = User(name , mail , password, username)
-            database = FirebaseDatabase.getInstance().getReference("Users")
+            database = FirebaseDatabase.getInstance().getReference("Users") //hamlyy database ko reference dinxam yesma
 
-            database.child(username).setValue(user).addOnSuccessListener {
+            database.child(username).setValue(user).addOnSuccessListener { //yedii registeration sucess vayesii yo code eun hunxa (code vayerw tost msg run hunxa)
                 Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
+                val intentWelcome2 = Intent(this, HomeActivity::class.java)
+                startActivity(intentWelcome2)
             }
-                .addOnFailureListener {
+                .addOnFailureListener {  //fail vayo vanyy yo run hunxa
                 Toast.makeText(this, "Failed" , Toast.LENGTH_SHORT).show()
             }
 
+        }
+        val signin = findViewById<Button>(R.id.btnsignin)
+        signin.setOnClickListener { //if user click on sigin button this code will run
+            val openSign = Intent(this , SigninActivity::class.java)
+            startActivity(openSign)
         }
     }
 }
