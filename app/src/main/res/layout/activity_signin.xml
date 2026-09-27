@@ -44,20 +44,6 @@
             android:hint="Username" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        app:startIconDrawable="@drawable/baseline_password_24"
-        android:background="@drawable/greybackground"
-        android:layout_margin="20dp"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lgpassword"
-            android:hint="Password" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/buttonsignin"
         android:layout_width="wrap_content"

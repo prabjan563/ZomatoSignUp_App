@@ -1,5 +1,6 @@
 package com.example.logcat_and_debugger
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -14,6 +15,10 @@ import com.google.firebase.database.FirebaseDatabase
 class SigninActivity : AppCompatActivity() {
 
     private lateinit var databaseReference: DatabaseReference
+    companion object {  //when we what to make global level variable
+        const val KEY = "com.example.logcat_and_debugger.SigninActivity.KEY"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,17 +38,31 @@ class SigninActivity : AppCompatActivity() {
                 readData(uniqueid)
             }
             else{
-                Toast.makeText(this, "Please Enter You Usernmae", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please Enter Your Username", Toast.LENGTH_SHORT).show()
             }
         }
     }
     private fun readData(uniqueId : String){
         databaseReference = FirebaseDatabase.getInstance().getReference("Users")
         databaseReference.child(uniqueId).get().addOnSuccessListener {
-
+            //if users exists or not
+            if(it.exists()){
+               //new page new intent
+                val email = it.child("email").value
+                val name = it.child("name").value
+                val id = it.child("username").value
+                val intentWelcome = Intent(this, HomeActivity::class.java)
+                intentWelcome.putExtra(KEY , email.toString())
+                intentWelcome.putExtra(KEY , name.toString())
+                intentWelcome.putExtra(KEY , id.toString())
+                startActivity(intentWelcome)
+            }
+            else{
+                Toast.makeText(this , "User Doesn't Exists", Toast.LENGTH_SHORT).show()
+            }
         }
             .addOnFailureListener {
-                Toast.makeText(this , "User Doesnot Exists", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this , "Failed", Toast.LENGTH_SHORT).show()
             }
     }
 }
