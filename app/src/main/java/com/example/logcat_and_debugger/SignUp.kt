@@ -40,7 +40,8 @@ class SignUp : AppCompatActivity() {
 
             database.child(username).setValue(user).addOnSuccessListener {
                 Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
+            }
+                .addOnFailureListener {
                 Toast.makeText(this, "Failed" , Toast.LENGTH_SHORT).show()
             }
 
