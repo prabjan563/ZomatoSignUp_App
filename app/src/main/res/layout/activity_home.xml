@@ -10,7 +10,7 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textwelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
@@ -24,24 +24,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:text="These are your details from database" />
 
-    <Button
-        android:id="@+id/btnMail"
+    <TextView
+        android:id="@+id/tvMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:textSize="18dp"
+        android:layout_margin="20dp"
         android:text="MAIL" />
 
-    <Button
-        android:id="@+id/btnUnique"
+    <TextView
+        android:id="@+id/tvUnique"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:textSize="18dp"
+        android:layout_margin="20dp"
         android:text="UNIQUE ID" />
 </LinearLayout>

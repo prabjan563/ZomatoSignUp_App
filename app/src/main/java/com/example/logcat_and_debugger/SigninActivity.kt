@@ -16,7 +16,9 @@ class SigninActivity : AppCompatActivity() {
 
     private lateinit var databaseReference: DatabaseReference
     companion object {  //when we what to make global level variable
-        const val KEY = "com.example.logcat_and_debugger.SigninActivity.KEY"
+        const val KEY1 = "com.example.logcat_and_debugger.SigninActivity.KEY"
+        const val KEY2 = "com.example.logcat_and_debugger.SigninActivity.KEY"
+        const val KEY3 = "com.example.logcat_and_debugger.SigninActivity.KEY"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +44,10 @@ class SigninActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun readData(uniqueId : String){
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-        databaseReference.child(uniqueId).get().addOnSuccessListener {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users") //database ko refernce lagiyoo
+        databaseReference.child(uniqueId).get().addOnSuccessListener { //sucess vayo vaneyy
             //if users exists or not
             if(it.exists()){
                //new page new intent
@@ -52,17 +55,18 @@ class SigninActivity : AppCompatActivity() {
                 val name = it.child("name").value
                 val id = it.child("username").value
                 val intentWelcome = Intent(this, HomeActivity::class.java)
-                intentWelcome.putExtra(KEY , email.toString())
-                intentWelcome.putExtra(KEY , name.toString())
-                intentWelcome.putExtra(KEY , id.toString())
+                intentWelcome.putExtra(KEY1 , email.toString()) // key are used when we try to pass the data from onr intent to another
+                intentWelcome.putExtra(KEY2 , name.toString())
+                intentWelcome.putExtra(KEY3 , id.toString())
                 startActivity(intentWelcome)
             }
             else{
-                Toast.makeText(this , "User Doesn't Exists", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this , "User Doesn't Exists", Toast.LENGTH_SHORT).show() //if fail vayo vanyy exist nai vayena vanyy
             }
         }
             .addOnFailureListener {
-                Toast.makeText(this , "Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this , "Failed", Toast.LENGTH_SHORT).show() // failed hunxa yedi hami direct login garna khojym vanyy
+
             }
     }
 }
